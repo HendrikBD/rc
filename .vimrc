@@ -1,4 +1,3 @@
-
 " Colors & Highlighting
 "
 colorscheme badwolf		" Cool Colourscheme 
@@ -23,5 +22,19 @@ set wildmenu            " Provides a graphical menu when autocompleting commands
 set lazyredraw          " Removes unnecessary redraws of text
 set showmatch           " Highlights matching parenthesis
 
+" Searching
+"
+set incsearch           " Search as characters are entered
+set hlsearch            " Highlights search results
+                        " Turn off search highlight with space, currently NOT working
+" nnoremap <leader><space> :nohlsearch<CR>
+
+" Folding
+"
+set foldenable          " Allow text folding
+set foldlevelstart=10   " Open most folds by default
+set foldnestmax=10      " 10 nested fold maximum
+nnoremap <space> za     " Remaps space to open/close folds
+set foldmethod=indent   " Fold based on indent level
 
 set directory^=$HOME/.vim/tmp
