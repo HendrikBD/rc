@@ -1,4 +1,4 @@
-execute pathogen#infect()
+execute pathogen#infect()                      
 
 " Colors & Highlighting
 "
@@ -66,5 +66,13 @@ let g:ctrlp_switch_buffer = 0                       " Always open new files in n
 let g:ctrlp_working_path_mode = 0                   " Allow changing working dir during editing
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'  " Not really sure, more cd stuff?
 
-
+" Backups & Directory
+"    Enable backups and set backup directory
+set backup
+set backupdir=~/.vim/tmp/backup
+set writebackup
 set directory^=$HOME/.vim/tmp
+
+"set modelines=1
+" foldmethod=marker:foldlevel=0
+
