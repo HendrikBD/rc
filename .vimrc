@@ -52,11 +52,12 @@ set foldmethod=indent   " Fold based on indent level
 
 " Movement
 "
-" nnoremap j gj           " Allows moving along lines visually (if wrapped)
-" nnoremap k gk           " See Above
-" nnoremap B ^            " Remaps B to move to beginning of line
 " nnoremap E $            " Remaps E to move to end of line
 nnoremap gV '[v']
+nnoremap <C-J> <C-W><C-J>   " Remaps split navigation to Ctrl-h/j/k/l
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 
 set directory^=$HOME/.vim/tmp
