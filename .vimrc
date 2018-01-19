@@ -13,14 +13,26 @@ endif
 set tabstop=4			" Sets the number of visual spaces/tab
 set softtabstop=4		" Sets the number of spaces/tab for editing
 set expandtab			" Sets tab to create spaces (instead of tab char)
+au BufNewFile,BufRead *.py
+    setlocal shiftwidth=4
+    setlocal textwidth=79
+    setlocal autoindent
+    "\ setlocal fileformat=unix
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+"augroup configgroup
+        "autocmd!
+        "autocmd FileType python setlocal shiftwidth=4
 " }}}
 
 "UI Config
 "   {{{
+filetype indent on      " Loads filetype specific indent files (from .vim/indent)
 set number              " Adds line numbers
 set showcmd             " Shows commands entered at bottom
 set cursorline          " Underlines the current line
-filetype indent on      " Loads filetype specific indent files (from .vim/indent)
 set wildmenu            " Provides a graphical menu when autocompleting commands
 set lazyredraw          " Removes unnecessary redraws of text
 set showmatch           " Highlights matching parenthesis
@@ -53,13 +65,16 @@ nnoremap <space> za     " Remaps space to open/close folds
 set foldmethod=indent   " Fold based on indent level
 " }}}
 
-" Movement
+" Movement & Splitting
 "   {{{
 nnoremap gV '[v']
 nnoremap <C-J> <C-W><C-J>   " Remaps split navigation to Ctrl-h/j/k/l
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
 " }}}
 
 "CtrlP Settings
