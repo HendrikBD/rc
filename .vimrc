@@ -13,18 +13,18 @@ endif
 set tabstop=4			" Sets the number of visual spaces/tab
 set softtabstop=4		" Sets the number of spaces/tab for editing
 set expandtab			" Sets tab to create spaces (instead of tab char)
+" Defines file specific spacing
 au BufNewFile,BufRead *.py
     setlocal shiftwidth=4
     setlocal textwidth=79
     setlocal autoindent
-    "\ setlocal fileformat=unix
+    setlocal fileformat=unix
 au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-"augroup configgroup
-        "autocmd!
-        "autocmd FileType python setlocal shiftwidth=4
+    set tabstop=2
+    set softtabstop=2
+    set shiftwidth=2
+highlight BadWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.py,*.pyc,*.c,*.h match BadWhitespace /\s\+$/
 " }}}
 
 "UI Config
@@ -36,6 +36,7 @@ set cursorline          " Underlines the current line
 set wildmenu            " Provides a graphical menu when autocompleting commands
 set lazyredraw          " Removes unnecessary redraws of text
 set showmatch           " Highlights matching parenthesis
+set encoding=utf-8
 " }}}
 
 " Leader Shortcuts
