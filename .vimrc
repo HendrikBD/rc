@@ -1,4 +1,4 @@
-execute pathogen#infect()                      
+execute pathogen#infect()
 
 " Colors & Highlighting
 "   {{{
@@ -37,6 +37,8 @@ set wildmenu            " Provides a graphical menu when autocompleting commands
 set lazyredraw          " Removes unnecessary redraws of text
 set showmatch           " Highlights matching parenthesis
 set encoding=utf-8
+set hidden
+set clipboard=unnamed
 " }}}
 
 " Leader Shortcuts
@@ -113,7 +115,6 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 " }}}
-
 
 set modeline
 set modelines=1
