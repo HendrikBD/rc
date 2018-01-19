@@ -116,6 +116,13 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 " }}}
 
+" Plugins, from ~/.vim/bundle
+" {{{
+" badwolf, fugitive, indentPy, powerline, the_silver_searcher, CtrlP, gundo,
+" nerdtree, SimpylFold, YouCompleteMe
+"}}}
+
+
 set modeline
 set modelines=1
 " vim: foldmethod=marker:foldlevel=0
