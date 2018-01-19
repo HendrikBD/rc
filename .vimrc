@@ -15,14 +15,19 @@ set softtabstop=4		" Sets the number of spaces/tab for editing
 set expandtab			" Sets tab to create spaces (instead of tab char)
 " Defines file specific spacing
 au BufNewFile,BufRead *.py
-    setlocal shiftwidth=4
-    setlocal textwidth=79
-    setlocal autoindent
-    setlocal fileformat=unix
-au BufNewFile,BufRead *.js, *.html, *.css
-    set tabstop=2
-    set softtabstop=2
-    set shiftwidth=2
+    \| :setlocal shiftwidth=4
+    \| :setlocal textwidth=79
+    \| :setlocal autoindent
+    \| :setlocal fileformat=unix
+au BufNewFile,BufRead *.js,*.html,*.css
+    \| :setlocal tabstop=2
+    \| :setlocal softtabstop=2
+    \| :setlocal shiftwidth=2
+au BufNewFile,BufRead *.txt
+    \| :setlocal tabstop=4
+    \| :setlocal softtabstop=4
+    \| :setlocal shiftwidth=4
+    \| :setlocal autoindent 
 highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py,*.pyc,*.c,*.h match BadWhitespace /\s\+$/
 " }}}
@@ -48,7 +53,7 @@ nnoremap <leader>u :GundoToggle<CR>         " Maps ,u to gundo Super-Undo
 nnoremap <leader>ev :sp $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
 nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
-nnoremap <leader>a :Ag                      " Uses ag (silver searcher) to search source code
+nnoremap <leader>a :Ag 
 " }}}
 
 " Searching
