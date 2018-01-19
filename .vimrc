@@ -94,6 +94,27 @@ set writebackup
 set directory^=$HOME/.vim/tmp
 " }}}
 
+" Autocomplete (YouCompleteMe) Options
+"   {{{
+" let g:ycm_python_binary_path = '/usr/bin/python'
+let g:ycm_autoclose_preview_window_completion=1 "ensures autocomp window exits
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" }}}
+
+" Virtualenv Support
+" {{{
+
+py3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+" }}}
+
+
 set modeline
 set modelines=1
 " vim: foldmethod=marker:foldlevel=0
