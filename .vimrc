@@ -23,11 +23,13 @@ au BufNewFile,BufRead *.js,*.html,*.css
     \| :setlocal tabstop=2
     \| :setlocal softtabstop=2
     \| :setlocal shiftwidth=2
+    \| :setlocal foldlevelstart=10
 au BufNewFile,BufRead *.txt
     \| :setlocal tabstop=4
     \| :setlocal softtabstop=4
     \| :setlocal shiftwidth=4
     \| :setlocal autoindent 
+    \| :setlocal foldlevelstart=10
 highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py,*.pyc,*.c,*.h match BadWhitespace /\s\+$/
 " }}}
@@ -67,7 +69,7 @@ nnoremap <leader><space> :nohls<CR>
 " Folding
 "   {{{
 set foldenable          " Allow text folding
-set foldlevelstart=10   " Open most folds by default
+set foldlevelstart=0   " Open most folds by default
 set foldnestmax=10      " 10 nested fold maximum
 nnoremap <space> za     " Remaps space to open/close folds
 set foldmethod=indent   " Fold based on indent level
@@ -127,6 +129,10 @@ EOF
 " nerdtree, SimpylFold, YouCompleteMe
 "}}}
 
+" Running and Compiling
+" {{{
+    nnoremap <buffer> <F55555> :exec '!python' shellescape(@%, 1)<cr>
+" }}}
 
 set modeline
 set modelines=1
