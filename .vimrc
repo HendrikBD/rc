@@ -131,7 +131,7 @@ EOF
 
 " Running and Compiling
 " {{{
-    nnoremap <buffer> <F55555> :exec '!python' shellescape(@%, 1)<cr>
+    nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
 " }}}
 
 set modeline
