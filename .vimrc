@@ -64,12 +64,13 @@ set incsearch           " Search as characters are entered
 set hlsearch            " Highlights search results
                         " Turn off search highlight with space, currently NOT working
 nnoremap <leader><space> :nohls<CR>
+vnoremap // y/<C-R>"<CR>'
 " }}}
 
 " Folding
 "   {{{
 set foldenable          " Allow text folding
-set foldlevelstart=0   " Open most folds by default
+set foldlevelstart=10   " Open most folds by default
 set foldnestmax=10      " 10 nested fold maximum
 nnoremap <space> za     " Remaps space to open/close folds
 set foldmethod=indent   " Fold based on indent level
@@ -87,6 +88,10 @@ set splitbelow
 set splitright
 " }}}
 
+" NERDTree Settings
+" {{{
+let NERDTreeChDirMode=2
+" }}}
 "CtrlP Settings
 "   {{{
 let g:ctrlp_match_window = 'bottom,order:ttb'       " Order matching files top to bottom
@@ -132,6 +137,17 @@ EOF
 " Running and Compiling
 " {{{
     nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
+" }}}
+
+" Copy/Paste
+" {{{
+" }}}
+
+" Opening Format
+" {{{
+:sp
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 " }}}
 
 set modeline
