@@ -56,6 +56,7 @@ nnoremap <leader>ev :sp $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
 nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
 nnoremap <leader>a :Ag 
+nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 " }}}
 
 " Searching
@@ -92,6 +93,7 @@ set splitright
 " {{{
 let NERDTreeChDirMode=2
 " }}}
+
 "CtrlP Settings
 "   {{{
 let g:ctrlp_match_window = 'bottom,order:ttb'       " Order matching files top to bottom
