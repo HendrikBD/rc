@@ -150,9 +150,9 @@ EOF
 
 " Opening Format
 " {{{
-:sp
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+" :sp
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p
 " }}}
 
 set modeline
