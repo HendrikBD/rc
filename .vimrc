@@ -10,6 +10,8 @@ endif
 
 "Spaces & Tabs
 "   {{{
+" let g:typescript_indent_disable = 1
+
 set tabstop=4			" Sets the number of visual spaces/tab
 set softtabstop=4		" Sets the number of spaces/tab for editing
 set expandtab			" Sets tab to create spaces (instead of tab char)
@@ -19,10 +21,11 @@ au BufNewFile,BufRead *.py
     \| :setlocal textwidth=79
     \| :setlocal autoindent
     \| :setlocal fileformat=unix
-au BufNewFile,BufRead *.js,*.html,*.css
-    \| :setlocal tabstop=2
-    \| :setlocal softtabstop=2
-    \| :setlocal shiftwidth=2
+au BufNewFile,BufRead *.js,*.ts,*.html,*.css
+    \| :setlocal tabstop=4
+    \| :setlocal softtabstop=4
+    \| :setlocal shiftwidth=4
+    \| :setlocal autoindent
     \| :setlocal foldlevelstart=10
 au BufNewFile,BufRead *.txt
     \| :setlocal tabstop=4
