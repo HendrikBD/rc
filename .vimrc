@@ -48,7 +48,6 @@ set lazyredraw          " Removes unnecessary redraws of text
 set showmatch           " Highlights matching parenthesis
 set encoding=utf-8
 set hidden
-set clipboard=unnamed
 " }}}
 
 " Leader Shortcuts
@@ -146,6 +145,10 @@ EOF
 
 " Copy/Paste
 " {{{
+" Adding ctrl-c, ctrl-v functionallity to copy and paste as well as using clip.exe to
+" save to windows clipboard.
+vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
+map <C-v> :r ~/.vimbuffer<CR>
 " }}}
 
 " Opening Format
