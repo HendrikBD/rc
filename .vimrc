@@ -53,6 +53,7 @@ set hidden
 " Leader Shortcuts
 "   {{{
 let mapleader=","                           " Set leader to comma
+nnoremap <leader>n :NERDTree<CR>
 nnoremap <leader>u :GundoToggle<CR>         " Maps ,u to gundo Super-Undo
 nnoremap <leader>ev :sp $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
@@ -102,7 +103,7 @@ set splitright
 
 " NERDTree Settings
 " {{{
-let NERDTreeChDirMode=2
+" let NERDTreeChDirMode=2
 " }}}
 
 "CtrlP Settings
