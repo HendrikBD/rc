@@ -95,6 +95,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+noremap H ^
+noremap L $
+noremap J <C-d>
+noremap K <C-u>
+
 set splitbelow
 set splitright
 " }}}
