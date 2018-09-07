@@ -148,7 +148,7 @@ EOF
 " Adding ctrl-c, ctrl-v functionallity to copy and paste as well as using clip.exe to
 " save to windows clipboard.
 vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
-map <C-v> :r ~/.vimbuffer<CR>
+" map <C-v> :r ~/.vimbuffer<CR>
 " }}}
 
 " Opening Format
