@@ -62,6 +62,10 @@ nnoremap <leader>ev :sp $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
 nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
 nnoremap <leader>a :Ag 
+
+nnoremap <leader>. :bn<CR>
+nnoremap <leader>m :bp<CR>
+
 nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 " }}}
 
