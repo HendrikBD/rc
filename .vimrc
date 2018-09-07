@@ -11,35 +11,39 @@ endif
 "Spaces & Tabs
 "   {{{
 " let g:typescript_indent_disable = 1
+" let g:javascript_indent_disable = 1
 
-set tabstop=4			" Sets the number of visual spaces/tab
-set softtabstop=4		" Sets the number of spaces/tab for editing
-set expandtab			" Sets tab to create spaces (instead of tab char)
-" Defines file specific spacing
+filetype indent on      " Loads filetype specific indent files (from .vim/indent)
+
+set autoindent          " Sets vim to mantain indent when newline is created
+set expandtab           " Sets tab to add spaces according to softtabstop
+
+" setlocal tabstop=2
+" setlocal softtabstop=2
+" setlocal shiftwidth=2
+
+" Sets spacing for different filetypes
+augroup webDevGroup
+  au BufRead,BufNewFile *.js,*.ts,*.html,*.css
+        \ :setlocal tabstop=2
+        \| :setlocal softtabstop=2
+        \| :setlocal shiftwidth=2
+augroup END
+
+" And options for python
 au BufNewFile,BufRead *.py
-    \| :setlocal shiftwidth=4
-    \| :setlocal textwidth=79
-    \| :setlocal autoindent
-    \| :setlocal fileformat=unix
-au BufNewFile,BufRead *.js,*.ts,*.html,*.css
-    \| :setlocal tabstop=4
-    \| :setlocal softtabstop=4
-    \| :setlocal shiftwidth=4
-    \| :setlocal autoindent
-    \| :setlocal foldlevelstart=10
-au BufNewFile,BufRead *.txt
-    \| :setlocal tabstop=4
-    \| :setlocal softtabstop=4
-    \| :setlocal shiftwidth=4
-    \| :setlocal autoindent 
-    \| :setlocal foldlevelstart=10
-highlight BadWhitespace ctermbg=red guibg=red
-au BufRead,BufNewFile *.py,*.pyc,*.c,*.h match BadWhitespace /\s\+$/
-" }}}
+      \| :setlocal tabstop=4
+      \| :setlocal softtabstop=4
+      \| :setlocal shiftwidth=4
+      \| :setlocal textwidth=79
+      \| :setlocal fileformat=unix
+
+setlocal foldlevelstart=10
+
+"   }}}
 
 "UI Config
 "   {{{
-filetype indent on      " Loads filetype specific indent files (from .vim/indent)
 set number              " Adds line numbers
 set showcmd             " Shows commands entered at bottom
 set cursorline          " Underlines the current line
