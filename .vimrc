@@ -103,15 +103,17 @@ set splitright
 
 " NERDTree Settings
 " {{{
-" let NERDTreeChDirMode=2
+let NERDTreeChDirMode=2
 " }}}
 
 "CtrlP Settings
 "   {{{
 let g:ctrlp_match_window = 'bottom,order:ttb'       " Order matching files top to bottom
 let g:ctrlp_switch_buffer = 0                       " Always open new files in new buffer
-let g:ctrlp_working_path_mode = 0                   " Allow changing working dir during editing
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'  " Not really sure, more cd stuff?
+let g:ctrlp_working_path_mode = 'rw'                " Allow changing working dir during editing
+set wildignore+=*/node_modules/*
+
+" let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'  " Not really sure, more cd stuff?
 " }}}
 
 " Backups & Directory
