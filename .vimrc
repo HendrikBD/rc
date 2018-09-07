@@ -18,10 +18,6 @@ filetype indent on      " Loads filetype specific indent files (from .vim/indent
 set autoindent          " Sets vim to mantain indent when newline is created
 set expandtab           " Sets tab to add spaces according to softtabstop
 
-" setlocal tabstop=2
-" setlocal softtabstop=2
-" setlocal shiftwidth=2
-
 " Sets spacing for different filetypes
 augroup webDevGroup
   au BufRead,BufNewFile *.js,*.ts,*.html,*.css
