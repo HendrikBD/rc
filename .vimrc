@@ -1,4 +1,24 @@
-execute pathogen#infect()
+set nocompatible        " Ensure vim (not vi, for vundle)
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'sjl/badwolf'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mbbill/undotree'
+Plugin 'ggreer/the_silver_searcher'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+call vundle#end()
+filetype plugin indent on
 
 let g:airline#extensions#tabline#enabled = 1
 
