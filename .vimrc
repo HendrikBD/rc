@@ -52,6 +52,7 @@ set lazyredraw          " Removes unnecessary redraws of text
 set showmatch           " Highlights matching parenthesis
 set encoding=utf-8
 set hidden
+set clipboard=unnamed
 " }}}
 
 " Leader Shortcuts
