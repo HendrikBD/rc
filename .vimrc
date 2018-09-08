@@ -4,14 +4,11 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Colors & Highlighting
 "   {{{
-" syntax enable
-set background=dark
-
 colorscheme badwolf 		" Cool Colourscheme 
 if !exists("g:syntax_on")	" Ensures highlighting isn't affected
 	syntax enable   		" Enable syntax processing, aka allows highlighting & font
 endif
-"
+
 let g:airline_theme='distinguished'
 " }}}
 
@@ -61,7 +58,6 @@ set hidden
 "   {{{
 let mapleader=","                           " Set leader to comma
 nnoremap <leader>n :NERDTree<CR>
-nnoremap <leader>u :GundoToggle<CR>         " Maps ,u to gundo Super-Undo
 nnoremap <leader>ev :sp $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
 nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
@@ -140,7 +136,6 @@ let g:ctrlp_match_window = 'bottom,order:ttb'       " Order matching files top t
 let g:ctrlp_switch_buffer = 0                       " Always open new files in new buffer
 let g:ctrlp_working_path_mode = 'rw'                " Allow changing working dir during editing
 set wildignore+=*/node_modules/*
-
 " let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'  " Not really sure, more cd stuff?
 " }}}
 
@@ -171,12 +166,6 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 " }}}
-
-" Plugins, from ~/.vim/bundle
-" {{{
-" badwolf, fugitive, indentPy, powerline, the_silver_searcher, CtrlP, gundo,
-" nerdtree, SimpylFold, YouCompleteMe
-"}}}
 
 " Running and Compiling
 " {{{
