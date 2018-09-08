@@ -196,6 +196,11 @@ EOF
 " autocmd VimEnter * wincmd p
 " }}}
 
+" Notifications
+"   {{{
+set visualbell
+" }}}
+
 set modeline
 set modelines=1
 " vim: foldmethod=marker:foldlevel=0
