@@ -91,6 +91,11 @@ nnoremap <leader>m :bp<CR>
 nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 " }}}
 
+" Hotkeys
+"   {{{
+nnoremap U J
+"   }}}
+
 " Copy Commands
 " {{{
 " Add hotkeys to copy text to independnet registers
