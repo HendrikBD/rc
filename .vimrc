@@ -1,14 +1,21 @@
 execute pathogen#infect()
 
+let g:airline#extensions#tabline#enabled = 1
+
 " Colors & Highlighting
 "   {{{
+" syntax enable
+set background=dark
+
 colorscheme badwolf 		" Cool Colourscheme 
 if !exists("g:syntax_on")	" Ensures highlighting isn't affected
 	syntax enable   		" Enable syntax processing, aka allows highlighting & font
 endif
+"
+let g:airline_theme='distinguished'
 " }}}
 
-"Spaces & Tabs
+" Spaces & Tabs
 "   {{{
 " let g:typescript_indent_disable = 1
 " let g:javascript_indent_disable = 1
@@ -64,6 +71,11 @@ nnoremap <leader>. :bn<CR>
 nnoremap <leader>m :bp<CR>
 
 nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
+" }}}
+
+" Hotkeys
+" {{{
+map U :UndotreeToggle<CR>
 " }}}
 
 " Searching
