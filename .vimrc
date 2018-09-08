@@ -73,6 +73,22 @@ nnoremap <leader>m :bp<CR>
 nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 " }}}
 
+" Copy Commands
+" {{{
+" Add hotkeys to copy text to independnet registers
+map <leader>W "ayy
+map <leader>w "ap
+map <leader>q i<space><esc>"apbhx
+"s-a
+map <leader>S "syy
+map <leader>s "sp
+map <leader>a i<space><esc>"spbhx
+
+" Command to copy to windows clipboard (saves to new buffer then uses clip.exe)
+map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
+" map <C-v> :r ~/.vimbuffer<CR>
+" }}}
+
 " Hotkeys
 " {{{
 map U :UndotreeToggle<CR>
@@ -165,14 +181,6 @@ EOF
 " Running and Compiling
 " {{{
     nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
-" }}}
-
-" Copy/Paste
-" {{{
-" Adding ctrl-c, ctrl-v functionallity to copy and paste as well as using clip.exe to
-" save to windows clipboard.
-vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
-" map <C-v> :r ~/.vimbuffer<CR>
 " }}}
 
 " Opening Format
