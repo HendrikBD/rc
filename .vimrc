@@ -78,7 +78,8 @@ set clipboard=unnamed
 " Leader Shortcuts
 "   {{{
 let mapleader=","                           " Set leader to comma
-nnoremap <leader>n :NERDTree<CR>
+map <leader>n :NERDTreeToggle<CR>
+map <leader>u :UndotreeToggle<CR>
 nnoremap <leader>ev :sp $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
 nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
@@ -104,11 +105,6 @@ map <leader>a i<space><esc>"spbhx
 " Command to copy to windows clipboard (saves to new buffer then uses clip.exe)
 map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
 " map <C-v> :r ~/.vimbuffer<CR>
-" }}}
-
-" Hotkeys
-" {{{
-map U :UndotreeToggle<CR>
 " }}}
 
 " Searching
