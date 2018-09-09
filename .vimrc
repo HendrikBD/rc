@@ -16,6 +16,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ternjs/tern_for_vim'
 
 call vundle#end()
 filetype plugin indent on
