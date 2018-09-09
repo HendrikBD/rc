@@ -7,3 +7,5 @@ else
 fi
 
 vim +PluginInstall +qall
+
+npm i --prefix ~/.vim/bundle/tern_for_vim
