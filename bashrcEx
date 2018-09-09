@@ -115,9 +115,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-#
-# ./git/dotfiles/bashrc/bashrcExt
 
+# Set bash syntax colors
 eval "$(dircolors ~/.dir_colors)"
 
 # NVM - run on startup
@@ -126,3 +125,6 @@ if [ -z "$TMUX" ]; then
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
         [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
+
+# Ensure display can be connected to display server in windows
+export DISPLAY=:0
