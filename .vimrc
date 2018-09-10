@@ -181,11 +181,19 @@ set writebackup
 set directory^=$HOME/.vim/tmp
 " }}}
 
-" Autocomplete (YouCompleteMe) Options
+" Autocomplete Options & Cmds
 "   {{{
-" let g:ycm_python_binary_path = '/usr/bin/python'
+let g:ycm_python_binary_path = '/usr/bin/python'
 let g:ycm_autoclose_preview_window_completion=1 "ensures autocomp window exits
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let g:UltiSnipsExpandTrigger="<CR>"
+
+let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<S-Tab>', '<Up>']
+
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
 " }}}
 
 " Virtualenv Support
@@ -228,13 +236,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" }}}
-
-" UltiSnips
-"   {{{
-let g:UltiSnipsExpandTrigger="<C-o>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " }}}
 
 set modeline
