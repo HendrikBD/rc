@@ -1,3 +1,5 @@
+" Plugin Setup
+"   {{{
 set nocompatible        " Ensure vim (not vi, for vundle)
 filetype off
 
@@ -16,10 +18,15 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ternjs/tern_for_vim'
+Plugin 'vim-syntastic/syntastic'
+
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
+" }}}
 
 let g:airline#extensions#tabline#enabled = 1
 
