@@ -106,7 +106,7 @@ nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 " Hotkeys
 "   {{{
 nnoremap U J
-"   }}}
+" }}}
 
 " Copy Commands
 " {{{
@@ -187,13 +187,25 @@ let g:ycm_python_binary_path = '/usr/bin/python'
 let g:ycm_autoclose_preview_window_completion=1 "ensures autocomp window exits
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-let g:UltiSnipsExpandTrigger="<CR>"
+" let g:UltiSnipsExpandTrigger="<CR>"
 
 let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<S-Tab>', '<Up>']
 
 let g:UltiSnipsJumpForwardTrigger = "<Tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
+
+" Setting <CR> (enter) to trigger UltiSnippet if menu is up, otherwise inset
+" newline
+
+let g:ulti_expand_or_jump_res = 0 "default value, just set once
+
+function! Ulti_ExpandOrJump_and_getRes()
+  call UltiSnips#ExpandSnippetOrJump()
+  return g:ulti_expand_or_jump_res
+endfunction
+
+inoremap <CR> <C-R>=(Ulti_ExpandOrJump_and_getRes() > 0)?"":"\n"<CR>
 " }}}
 
 " Virtualenv Support
