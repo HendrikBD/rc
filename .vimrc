@@ -66,11 +66,15 @@ au BufNewFile,BufRead *.py
       \| :setlocal textwidth=79
       \| :setlocal fileformat=unix
 
+:setlocal tabstop=2
+:setlocal softtabstop=2
+:setlocal shiftwidth=2
+
 setlocal foldlevelstart=10
 
 "   }}}
 
-"UI Config
+" UI Config
 "   {{{
 set number              " Adds line numbers
 set showcmd             " Shows commands entered at bottom
