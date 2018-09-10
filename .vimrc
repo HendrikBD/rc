@@ -229,6 +229,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " }}}
+
+" UltiSnips
+"   {{{
+let g:UltiSnipsExpandTrigger="<C-o>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" }}}
+
 set modeline
 set modelines=1
 " vim: foldmethod=marker:foldlevel=0
