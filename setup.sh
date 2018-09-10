@@ -8,4 +8,5 @@ fi
 
 vim +PluginInstall +qall
 
-npm i --prefix ~/.vim/bundle/tern_for_vim
+# Setting up plugins that require more than vundle
+python ~/.vim/bundle/YouCompleteMe/install.py
