@@ -19,10 +19,16 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'burnettk/vim-angular'
+Plugin 'claco/jasmine.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
+
 
 call vundle#end()
 filetype plugin indent on
