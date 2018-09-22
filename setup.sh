@@ -13,6 +13,22 @@ else
   git -C ./dircolors-solarized pull
 fi
 
+if [ ! -d ~/utilities/nvm ]; then
+  [ ! -d ~/utilities ] && mkdir utilities
+  git clone https://github.com/creationix/nvm ~/utilities/nvm
+  bash ~/utilities/nvm/install.sh
+else
+  git -C ~/utilities/nvm pull
+fi
+
+export NVM_DIR="$HOME/utilities/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm install --lts --latest-npm
+
+
+
+
 # vim +PluginInstall +qall
 
 # Setting up plugins that require more than vundle
