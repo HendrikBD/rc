@@ -7,7 +7,13 @@ else
   git -C ~/.vim/bundle/Vundle.vim pull
 fi
 
-vim +PluginInstall +qall
+if [ ! -d ./dircolors-solarized ]; then
+  git clone https://github.com/seebi/dircolors-solarized
+else
+  git -C ./dircolors-solarized pull
+fi
+
+# vim +PluginInstall +qall
 
 # Setting up plugins that require more than vundle
 python ~/.vim/bundle/YouCompleteMe/install.py
