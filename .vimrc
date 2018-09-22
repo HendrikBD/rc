@@ -92,13 +92,17 @@ set clipboard=unnamed
 let mapleader=","                           " Set leader to comma
 map <leader>n :NERDTreeToggle<CR>
 map <leader>u :UndotreeToggle<CR>
-nnoremap <leader>ev :sp $MYVIMRC<CR>        " Maps ,ev to open .vimrc
+nnoremap <leader>ev :e $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
-nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
+" nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
 nnoremap <leader>a :Ag 
+
+nnoremap <leader>rel :set relativenumber!<CR>
 
 nnoremap <leader>. :bn<CR>
 nnoremap <leader>m :bp<CR>
+
+nnoremap <leader>, :CtrlPLine<CR>
 
 nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 " }}}
