@@ -29,7 +29,7 @@ nvm install --lts --latest-npm
 
 
 
-# vim +PluginInstall +qall
+vim +PluginInstall +qall
 
 # Setting up plugins that require more than vundle
 python ~/.vim/bundle/YouCompleteMe/install.py
