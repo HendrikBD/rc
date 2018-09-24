@@ -17,6 +17,13 @@ else
   git -C ./dircolors-solarized pull
 fi
 
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+  git -C ~/.tmux/plugins/tpm pull
+fi
+
+
 if [ ! -d ~/utilities/nvm ]; then
   [ ! -d ~/utilities ] && mkdir utilities
   git clone https://github.com/creationix/nvm ~/utilities/nvm
