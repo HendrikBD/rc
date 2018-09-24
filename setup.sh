@@ -37,16 +37,15 @@ export NVM_DIR="$HOME/utilities/nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install --lts --latest-npm
 
-
-
+# Linking all necessary files to home
+ln -sr vimrc ~/.vimrc
+ln -sr tmux.conf ~/.tmux.conf
+ln -sr bashrc ~/.bashrc
+ln -sr dircolors-solarized/dircolors.256dark ~/.dir_colors
 
 vim +PluginInstall +qall
 
 # Setting up plugins that require more than vundle
 python ~/.vim/bundle/YouCompleteMe/install.py
 
-# Linking all necessary files to home
-ln -s vimrc ~/.vimrc
-ln -s tmux.conf ~/.tmux.conf
-ln -s bashrc ~/.bashrc
-ln -s dir_colors ~/.dir_colors
+# Solarized backgound colors: rgb(0, 43, 54)
