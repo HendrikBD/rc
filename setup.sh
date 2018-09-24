@@ -25,7 +25,7 @@ fi
 
 
 if [ ! -d ~/utilities/nvm ]; then
-  [ ! -d ~/utilities ] && mkdir utilities
+  [ ! -d ~/utilities ] && mkdir ~/utilities
   git clone https://github.com/creationix/nvm ~/utilities/nvm
   bash ~/utilities/nvm/install.sh
 else
