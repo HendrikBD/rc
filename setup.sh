@@ -1,5 +1,7 @@
 # A simple script to perform setup commands to prepare a vim environment
+# sudo apt-get update
 sudo apt install tmux
+sudo apt install build-essential cmake python3-dev python-dev
 
 # Download or update Vundle package manager for vim
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
