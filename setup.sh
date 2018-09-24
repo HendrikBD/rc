@@ -6,11 +6,12 @@ sudo apt install build-essential cmake python3-dev python-dev
 # Download or update Vundle package manager for vim
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
   git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+  mkdir -p ~/.vim/tmp/backup
 else
   git -C ~/.vim/bundle/Vundle.vim pull
 fi
 
-if [ ! -d ./dircolors-solarized ]; then
+if [ ! -d ./dircolors ]; then
   git clone https://github.com/seebi/dircolors-solarized
 else
   git -C ./dircolors-solarized pull
