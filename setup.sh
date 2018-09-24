@@ -1,4 +1,5 @@
 # A simple script to perform setup commands to prepare a vim environment
+sudo apt install tmux
 
 # Download or update Vundle package manager for vim
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
