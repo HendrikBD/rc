@@ -34,6 +34,8 @@ vim +PluginInstall +qall
 # Setting up plugins that require more than vundle
 python ~/.vim/bundle/YouCompleteMe/install.py
 
+# Linking all necessary files to home
 ln -s vimrc ~/.vimrc
 ln -s tmux.conf ~/.tmux.conf
 ln -s bashrc ~/.bashrc
+ln -s dir_colors ~/.dir_colors
