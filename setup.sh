@@ -47,5 +47,8 @@ vim +PluginInstall +qall
 
 # Setting up plugins that require more than vundle
 python ~/.vim/bundle/YouCompleteMe/install.py
+make -C ~/.vim/bundle/vimproc.vim/
+
+npm i -g typescript
 
 # Solarized backgound colors: rgb(0, 43, 54)

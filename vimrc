@@ -23,6 +23,8 @@ Plugin 'burnettk/vim-angular'
 Plugin 'claco/jasmine.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
