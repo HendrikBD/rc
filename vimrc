@@ -132,8 +132,9 @@ map <leader>s "sp
 map <leader>a i<space><esc>"spbhx
 
 " Command to copy to windows clipboard (saves to new buffer then uses clip.exe)
-map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
-map <C-C> :r ~/.vimbuffer<CR>
+" map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
+map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>
+map <C-d> :r ~/.vimbuffer<CR>
 " }}}
 
 " Searching
