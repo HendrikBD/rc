@@ -103,6 +103,7 @@ alias mkdir='mkdir -pv' # Automatically create parent directory if necessary
 # Aliases for git commands
 alias gs='git status'
 alias gd='git diff'
+alias gl='git log'
 alias ga='git add'
 alias gap='git add -p'
 alias gc='git commit'
@@ -110,6 +111,12 @@ alias gco='git checkout'
 alias gb='git branch'
 alias gpush='git push origin master'
 alias gpull='git pull origin master'
+
+alias vc='bash ~/homebrew/utils/scripts/openComp'
+alias vm='bash ~/homebrew/utils/scripts/openModule'
+
+alias tat='tmux attach -t'
+alias tl='tmux list-sessions'
 
 
 # Add an "alert" alias for long running commands.  Use like so:

@@ -1,6 +1,7 @@
 " Plugin Setup
 "   {{{
 set nocompatible        " Ensure vim (not vi, for vundle)
+set hidden
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -96,8 +97,8 @@ set clipboard=unnamed
 " Leader Shortcuts
 "   {{{
 let mapleader=","                           " Set leader to comma
-map <leader>n :NERDTreeToggle<CR>
-map <leader>u :UndotreeToggle<CR>
+noremap <leader>n :NERDTreeToggle<CR>
+noremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>ev :e $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
 " nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
@@ -115,19 +116,19 @@ nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 
 " Hotkeys
 "   {{{
-nnoremap U J
+  nnoremap U J
 " }}}
 
 " Copy Commands
 " {{{
 " Add hotkeys to copy text to independnet registers
-map <leader>W "ayy
-map <leader>w "ap
-map <leader>q i<space><esc>"apbhx
+noremap <leader>W "ayy
+noremap <leader>w "ap
+noremap <leader>q i<space><esc>"apbhx
 "s-a
-map <leader>S "syy
-map <leader>s "sp
-map <leader>a i<space><esc>"spbhx
+noremap <leader>S "syy
+noremap <leader>s "sp
+noremap <leader>a i<space><esc>"spbhx
 
 " Command to copy to windows clipboard (saves to new buffer then uses clip.exe)
 map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
@@ -160,10 +161,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-map H ^
-map L $
-map J <C-d>
-map K <C-u>
+noremap H ^
+noremap L $
+noremap J <C-d>
+noremap K <C-u>
 
 set splitbelow
 set splitright
@@ -195,7 +196,7 @@ set directory^=$HOME/.vim/tmp
 "   {{{
 let g:ycm_python_binary_path = '/usr/bin/python'
 let g:ycm_autoclose_preview_window_completion=1 "ensures autocomp window exits
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " let g:UltiSnipsExpandTrigger="<CR>"
 
