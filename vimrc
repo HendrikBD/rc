@@ -10,20 +10,23 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'sjl/badwolf'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mbbill/undotree'
+Plugin 'vim-ctrlspace/vim-ctrlspace'
 Plugin 'ggreer/the_silver_searcher'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'burnettk/vim-angular'
 Plugin 'claco/jasmine.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -131,7 +134,10 @@ noremap <leader>s "sp
 noremap <leader>a i<space><esc>"spbhx
 
 " Command to copy to windows clipboard (saves to new buffer then uses clip.exe)
-map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
+noremap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
+" map <C-v> :r ~/.vimbuffer<CR>
+"
+" noremap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
 " map <C-v> :r ~/.vimbuffer<CR>
 " }}}
 
@@ -260,6 +266,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " }}}
+
+" CtrlSpace Options
+"
+" CtrlSpace highlighting
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 
 set modeline
 set modelines=1
