@@ -26,6 +26,8 @@ Plugin 'burnettk/vim-angular'
 Plugin 'claco/jasmine.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
 
 
 Plugin 'SirVer/ultisnips'
@@ -134,8 +136,8 @@ noremap <leader>s "sp
 noremap <leader>a i<space><esc>"spbhx
 
 " Command to copy to windows clipboard (saves to new buffer then uses clip.exe)
-noremap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
-" map <C-v> :r ~/.vimbuffer<CR>
+map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>
+map <C-d> :r ~/.vimbuffer<CR>
 "
 " noremap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
 " map <C-v> :r ~/.vimbuffer<CR>
