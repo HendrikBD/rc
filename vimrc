@@ -107,7 +107,10 @@ noremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>ev :e $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
 " nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
-nnoremap <leader>a :Ag 
+
+" Ag command
+vnoremap <leader>a y:!tmux send-keys Enter :Ag Enter; tmux run-shell -b "sleep 0.3; tmux send-keys <C-r>""<CR>
+nnoremap <leader>a :Ag<CR>
 
 nnoremap <leader>rel :set relativenumber!<CR>
 
@@ -122,8 +125,16 @@ nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 " Hotkeys
 "   {{{
   nnoremap U J
+  nnoremap <leader>sw :CtrlSpaceSaveWorkspace 
 " }}}
 
+" Visual Mode
+" {{{
+" vno:emap <C-O> y/<C-R>"<CR>
+vnoremap // y/<C-r>"<CR>'
+" }}}
+
+"
 " Copy Commands
 " {{{
 " Add hotkeys to copy text to independnet registers
@@ -133,7 +144,7 @@ noremap <leader>q i<space><esc>"apbhx
 "s-a
 noremap <leader>S "syy
 noremap <leader>s "sp
-noremap <leader>a i<space><esc>"spbhx
+" noremap <leader>a i<space><esc>"spbhx
 
 " Command to copy to windows clipboard (saves to new buffer then uses clip.exe)
 map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>
@@ -149,7 +160,6 @@ set incsearch           " Search as characters are entered
 set hlsearch            " Highlights search results
                         " Turn off search highlight with space, currently NOT working
 nnoremap <leader><space> :nohls<CR>
-vnoremap // y/<C-R>"<CR>'
 " }}}
 
 " Folding
