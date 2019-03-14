@@ -64,7 +64,7 @@ set expandtab           " Sets tab to add spaces according to softtabstop
 
 " Sets spacing for different filetypes
 augroup webDevGroup
-  au BufRead,BufNewFile *.js,*.ts,*.html,*.css
+  au BufRead,BufNewFile *.js,*.ts,*.html,*.css,*.vim
         \ :setlocal tabstop=2
         \| :setlocal softtabstop=2
         \| :setlocal shiftwidth=2
@@ -126,6 +126,17 @@ nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 "   {{{
   nnoremap U J
   nnoremap <leader>sw :CtrlSpaceSaveWorkspace 
+" }}}
+
+
+" Fugitive
+"   {{{
+  nnoremap <leader>gd :Gdiff<CR>
+  nnoremap <leader>gs :Gstatus<CR>
+  nnoremap <leader>gc :Gcommit<CR>
+  nnoremap <leader>gp :Gpull<CR>
+  noremap <leader>dp :diffput<CR>
+  noremap <leader>dg :diffget<CR>
 " }}}
 
 " Visual Mode
