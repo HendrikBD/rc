@@ -146,6 +146,16 @@ nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 vnoremap // y/<C-r>"<CR>'
 " }}}
 
+" Tabs
+" {{{
+" vno:emap <C-O> y/<C-R>"<CR>
+nnoremap tn :tabnew<Space>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
+nnoremap th :tabfirst<CR>
+nnoremap tl :tablast<CR>
+" }}}
+
 "
 " Copy Commands
 " {{{
@@ -195,6 +205,9 @@ noremap H ^
 noremap L $
 noremap J <C-d>
 noremap K <C-u>
+
+cnoremap <C-k> <Up>
+cnoremap <C-j> <Down>
 
 set splitbelow
 set splitright
