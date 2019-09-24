@@ -4,6 +4,7 @@ set nocompatible        " Ensure vim (not vi, for vundle)
 set hidden
 filetype off
 
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -17,7 +18,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mbbill/undotree'
 Plugin 'vim-ctrlspace/vim-ctrlspace'
 Plugin 'ggreer/the_silver_searcher'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
@@ -26,11 +26,15 @@ Plugin 'claco/jasmine.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
 Plugin 'w0rp/ale'
+Plugin 'adelarsq/vim-matchit'
+Plugin 'prettier/vim-prettier'
+" Plugin 'heavenshell/vim-jsdoc'
 
 
+Plugin 'junegunn/fzf.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'matthewsimo/angular-vim-snippets'
@@ -43,14 +47,19 @@ filetype plugin indent on
 
 let g:airline#extensions#tabline#enabled = 1
 
+
+" Autocompletion
+"
+
 " Colors & Highlighting
 "   {{{
-colorscheme badwolf 		" Cool Colourscheme 
+colorscheme badwolf 		" Cool Colourscheme
 if !exists("g:syntax_on")	" Ensures highlighting isn't affected
 	syntax enable   		" Enable syntax processing, aka allows highlighting & font
 endif
 
 let g:airline_theme='distinguished'
+let g:javascript_plugin_jsdoc = 1
 " }}}
 
 " Spaces & Tabs
@@ -67,8 +76,8 @@ set expandtab           " Sets tab to add spaces according to softtabstop
 augroup webDevGroup
   au BufRead,BufNewFile *.js,*.ts,*.html,*.css,*.vim
         \ :setlocal tabstop=2
-        \| :setlocal softtabstop=2
-        \| :setlocal shiftwidth=2
+   		\| :setlocal shiftwidth=2
+
 augroup END
 
 " And options for python
@@ -79,6 +88,8 @@ au BufNewFile,BufRead *.py
       \| :setlocal textwidth=79
       \| :setlocal fileformat=unix
 
+:set tabstop=2
+:set shiftwidth=2
 :setlocal tabstop=2
 :setlocal softtabstop=2
 :setlocal shiftwidth=2
@@ -105,13 +116,16 @@ set clipboard=unnamed
 let mapleader=","                           " Set leader to comma
 noremap <leader>n :NERDTreeToggle<CR>
 noremap <leader>u :UndotreeToggle<CR>
+noremap <leader>r :redraw!<CR>
 nnoremap <leader>ev :e $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
+nnoremap <leader>js :%!python -m json.tool<CR>    "
 " nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
 
 " Ag command
-vnoremap <leader>a y:!tmux send-keys Enter :Ag Enter; tmux run-shell -b "sleep 0.3; tmux send-keys <C-r>""<CR>
-nnoremap <leader>a :Ag<CR>
+" vnoremap <leader>a y:!tmux send-keys Enter :Ag Enter; tmux run-shell -b "sleep 0.3; tmux send-keys <C-r>""<CR>
+" nnoremap <leader>a :Ag<CR>
+" nnoremap <leader>a zMzr
 
 nnoremap <leader>rel :set relativenumber!<CR>
 
@@ -121,12 +135,15 @@ nnoremap <leader>m :bp<CR>
 nnoremap <leader>, :CtrlPLine<CR>
 
 nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
+nnoremap <leader>cl oconsole.log()<Esc>
+nnoremap <leader>st osetTimeout(() => {}, 2000)<Esc>7hi
 " }}}
 
 " Hotkeys
 "   {{{
   nnoremap U J
-  nnoremap <leader>sw :CtrlSpaceSaveWorkspace 
+  nnoremap <ALT+k> <Up>
+  nnoremap <ALT+j> <Down>
 " }}}
 
 
@@ -138,6 +155,7 @@ nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
   nnoremap <leader>gp :Gpull<CR>
   noremap <leader>dp :diffput<CR>
   noremap <leader>dg :diffget<CR>
+
 " }}}
 
 " Visual Mode
@@ -169,7 +187,9 @@ noremap <leader>s "sp
 " noremap <leader>a i<space><esc>"spbhx
 
 " Command to copy to windows clipboard (saves to new buffer then uses clip.exe)
-map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>
+" map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
+" Command to copy to ubuntu clipboard
+map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| xclip -sel clip<CR><CR>
 map <C-d> :r ~/.vimbuffer<CR>
 "
 " noremap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
@@ -211,13 +231,14 @@ cnoremap <C-j> <Down>
 
 set splitbelow
 set splitright
+
+runtime macros/matchit.vim
 " }}}
 
 " NERDTree Settings
 " {{{
-let NERDTreeChDirMode=2
-" }}}
-
+" let NERDTreeChDirMode=2
+let NERDTreeIgnore=['\~%']
 "CtrlP Settings
 "   {{{
 let g:ctrlp_match_window = 'bottom,order:ttb'       " Order matching files top to bottom
@@ -237,6 +258,8 @@ set directory^=$HOME/.vim/tmp
 
 " Autocomplete Options & Cmds
 "   {{{
+let g:ale_completion_enabled = 1
+
 let g:ycm_python_binary_path = '/usr/bin/python'
 let g:ycm_autoclose_preview_window_completion=1 "ensures autocomp window exits
 noremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -248,6 +271,9 @@ let g:ycm_key_list_previous_completion = ['<S-Tab>', '<Up>']
 
 let g:UltiSnipsJumpForwardTrigger = "<Tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
+
+"set complete=.,b,u,]
+set completeopt=preview,menuone,noinsert
 
 " Setting <CR> (enter) to trigger UltiSnippet if menu is up, otherwise inset
 " newline
@@ -285,6 +311,7 @@ EOF
 " :sp
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
+set relativenumber!
 " }}}
 
 " Notifications
@@ -297,9 +324,23 @@ set visualbell
 let g:ale_echo_cursor = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 "   }}}
+
+" Formatting
+"
+set formatoptions-=cro
+
+
+" Ctrl Space options
+"
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
+
+
+" Removes whitespaces on save
+autocmd BufWritePre * :%s/\s\+$//e
+
 set statusline+=%#warningmsg#
 set statusline+=%*
-
 
 
 set modeline
