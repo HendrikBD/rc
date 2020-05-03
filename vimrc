@@ -276,7 +276,7 @@ cnoremap <C-j> <Down>
 set splitbelow
 set splitright
 
-runtime macros/matchit.vim
+" runtime macros/matchit.vim
 " }}}
 
 " NERDTree Settings
