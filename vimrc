@@ -134,17 +134,28 @@ set clipboard=unnamed
 "   {{{
 let mapleader=","                           " Set leader to comma
 noremap <leader>n :NERDTreeToggle<CR>
+noremap <leader>nf :NERDTreeFind<CR>
+
 noremap <leader>u :UndotreeToggle<CR>
 noremap <leader>r :redraw!<CR>
 nnoremap <leader>ev :e $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
-nnoremap <leader>js :%!python -m json.tool<CR>    "
+nnoremap <leader>json :%!python3 -m json.tool<CR>    "
+nnoremap <leader>jsd :JsDoc<CR>
+" nnoremap <leader>jsd vawyO/*<CR>*/<ESC>hhxko<Space>*<Space><ESC>p
+" nnoremap <leader>jsd vawyO/*<CR>*/<ESC>ko<Space>*<Space><ESC>po<Space>*<ESC>jxko*<ESC>hxA<Space>
 " nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
 
-" Ag command
-" vnoremap <leader>a y:!tmux send-keys Enter :Ag Enter; tmux run-shell -b "sleep 0.3; tmux send-keys <C-r>""<CR>
-" nnoremap <leader>a :Ag<CR>
-" nnoremap <leader>a zMzr
+" FZF Commands
+nnoremap <leader>fa :Ag<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fc :Commits<CR>
+
+vnoremap <leader>fa y:Ag<Space><C-R>"<CR>
+
+" Fold leaving one layer open. Good for looking at classes etc
+nnoremap <leader>a zMzr
 
 nnoremap <leader>rel :set relativenumber!<CR>
 
