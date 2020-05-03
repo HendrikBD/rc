@@ -370,7 +370,9 @@ EOF
 
 " Running and Compiling
 " {{{
-    nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
+    " nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
+    nnoremap <leader>x :%w ! node > ~/.vimoutput<CR> :sp ~/.vimoutput<CR>
+    vnoremap <leader>x :'<,'>w ! node > ~/.vimoutput<CR> :sp ~/.vimoutput<CR>
 " }}}
 
 " Opening Format
