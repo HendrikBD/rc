@@ -2,58 +2,73 @@
 "   {{{
 set nocompatible        " Ensure vim (not vi, for vundle)
 set hidden
+
+" filetype plugin on
 filetype off
 
-
+set rtp+=~/.fzf
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/bundle')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
-Plugin 'sjl/badwolf'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mbbill/undotree'
-Plugin 'vim-ctrlspace/vim-ctrlspace'
-Plugin 'ggreer/the_silver_searcher'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'burnettk/vim-angular'
-Plugin 'claco/jasmine.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'w0rp/ale'
-Plugin 'adelarsq/vim-matchit'
-Plugin 'prettier/vim-prettier'
-" Plugin 'heavenshell/vim-jsdoc'
+Plug 'sjl/badwolf'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-fugitive'
+Plug 'tomtom/tcomment_vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'burnettk/vim-angular'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'Shougo/vimproc.vim'
+Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
+Plug 'adelarsq/vim-matchit'
+Plug 'prettier/vim-prettier'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-
-Plugin 'junegunn/fzf.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'matthewsimo/angular-vim-snippets'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 
 
-call vundle#end()
+Plug 'junegunn/fzf.vim'
+
+" Plugin 'vim-ctrlspace/vim-ctrlspace'
+" Plugin 'ggreer/the_silver_searcher'
+" Plugin 'claco/jasmine.vim'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+
+call plug#end()
 filetype plugin indent on
 " }}}
 
 let g:airline#extensions#tabline#enabled = 1
 
 
-" Autocompletion
-"
+" Colors & Highlighting
+"   {{{
+let g:prettier#partial_format=1
+" vnoremap <leader>pr :Prettier<CR>
+vnoremap ,pr :Prettier<CR>
+"   }}}
 
 " Colors & Highlighting
 "   {{{
-colorscheme badwolf 		" Cool Colourscheme
+" colorscheme badwolf 		" Cool Colourscheme
+
+hi Folded guibg=NONE ctermbg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
+hi VertSplit gui=NONE cterm=NONE
+
 if !exists("g:syntax_on")	" Ensures highlighting isn't affected
 	syntax enable   		" Enable syntax processing, aka allows highlighting & font
 endif
@@ -96,13 +111,17 @@ au BufNewFile,BufRead *.py
 
 setlocal foldlevelstart=10
 
+" {{{ Init Defaults
+:set maxfuncdepth=200
+" }}}
+
 "   }}}
 
 " UI Config
 "   {{{
 set number              " Adds line numbers
 set showcmd             " Shows commands entered at bottom
-set cursorline          " Underlines the current line
+" set cursorline          " Underlines the current line
 set wildmenu            " Provides a graphical menu when autocompleting commands
 set lazyredraw          " Removes unnecessary redraws of text
 set showmatch           " Highlights matching parenthesis
