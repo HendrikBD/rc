@@ -166,7 +166,11 @@ nnoremap <leader>, :CtrlPLine<CR>
 
 nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 nnoremap <leader>cl oconsole.log()<Esc>
+vnoremap <leader>cl yoconsole.log('<Esc>pa',<Space><Esc>pa);<Esc>
+nnoremap <leader>fsl oconst fs = require('fs');<CR>fs.writeFile(`${__dirname}/tmp.log`,, () => {<CR>console.log('Logged!')<CR>});<Esc>kkf,a<Space>
 nnoremap <leader>st osetTimeout(() => {}, 2000)<Esc>7hi
+
+nnoremap <leader>pg ! psql -d syncro_migration -f %<CR>
 " }}}
 
 " Hotkeys
@@ -182,7 +186,7 @@ nnoremap <leader>st osetTimeout(() => {}, 2000)<Esc>7hi
   nnoremap <leader>gd :Gdiff<CR>
   nnoremap <leader>gs :Gstatus<CR>
   nnoremap <leader>gc :Gcommit<CR>
-  nnoremap <leader>gp :Gpull<CR>
+  " nnoremap <leader>gp :Gpull<CR>
   noremap <leader>dp :diffput<CR>
   noremap <leader>dg :diffget<CR>
 
@@ -232,6 +236,16 @@ set incsearch           " Search as characters are entered
 set hlsearch            " Highlights search results
                         " Turn off search highlight with space, currently NOT working
 nnoremap <leader><space> :nohls<CR>
+
+function! FindLocalFiles()
+  let fileDir = expand('%:p:h')
+  let grepCmd = join(['grep -vnITr --color=always --exclude-dir=".svn" --exclude-dir=".git" --exclude=tags --exclude=*\.pyc --exclude=*\.exe --exclude=*\.dll --exclude=*\.zip --exclude=*\.gz "^$"', fileDir], ' ')
+  call fzf#vim#grep(grepCmd, 0, {'options': '--prompt "FLines> "'})
+endfunction
+
+command! -bang FLines call FindLocalFiles()
+
+nnoremap <silent> <leader>fl :FLines<cr>
 " }}}
 
 " Folding
