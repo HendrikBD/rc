@@ -302,34 +302,57 @@ set directory^=$HOME/.vim/tmp
 
 " Autocomplete Options & Cmds
 "   {{{
-let g:ale_completion_enabled = 1
 
-let g:ycm_python_binary_path = '/usr/bin/python'
-let g:ycm_autoclose_preview_window_completion=1 "ensures autocomp window exits
-noremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+set completeopt=menu,preview,noselect,noinsert
 
-" let g:UltiSnipsExpandTrigger="<CR>"
+let g:lsp_settings =  {
+                        \ 'typescript': {'cmd': ['typescript-language-server'] }
+                        \}
 
-let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<S-Tab>', '<Up>']
+" au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#ale#get_source_options({
+"     \ 'priority': 10
+"     \ }))
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
 
-"set complete=.,b,u,]
-set completeopt=preview,menuone,noinsert
+" Ale Config
+let g:lint_on_text_changed = 'normal'
+" let g:ale_lint_on_insert_leave = 1
+" let g:ale_echo_cursor = 1
 
-" Setting <CR> (enter) to trigger UltiSnippet if menu is up, otherwise inset
-" newline
+" }}}
 
-let g:ulti_expand_or_jump_res = 0 "default value, just set once
+" Hotkeys
+nnoremap <leader>ag :ALEGoToDefinition<CR>
+nnoremap <leader>ar :ALEFindReferences<CR>
 
-function! Ulti_ExpandOrJump_and_getRes()
-  call UltiSnips#ExpandSnippetOrJump()
-  return g:ulti_expand_or_jump_res
-endfunction
+nmap <silent> <leader>ern :ALENext<cr>
+nmap <silent> <leader>erp :ALEPrevious<cr>
 
-inoremap <CR> <C-R>=(Ulti_ExpandOrJump_and_getRes() > 0)?"":"\n"<CR>
+
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+"   }}}
+
+" Ultisnips
+"   {{{
+" nnoremap <leader>nsn :new ~/.vim/snippets/
+nnoremap <leader>esn :e $MYVIMRC<CR>:320<CR>
+
+nnoremap <leader>jser :read ~/.vim/snippets/error<CR>
+"   }}}
+
+" Ultisnips
+" {{{
+
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+"
+" let g:UltiSnipsSnippetsDir="~/.vim/snippets/"
+
 " }}}
 
 " Virtualenv Support
@@ -361,24 +384,44 @@ set relativenumber!
 " Notifications
 "   {{{
 set visualbell
+set belloff=all
 " }}}
 
 " Ale Config
 "   {{{
-let g:ale_echo_cursor = 1
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" let g:ale_completion_enabled = 1
+" let g:ale_echo_cursor = 1
+" let g:ale_linters = {
+"   \  'javascript': ['typescript-eslint-parser', 'typescript-language-server'],
+"   \  'typescript': ['typescript-eslint-parser', 'typescript-language-server']
+"   \}
+
+" let g:ale_linters = {
+"   \  'javascript': ['typescript-language-server']
+"   \}
+" let g:ale_completion_tsserver_autoimport = 1
+nnoremap <silent> [c <Plug>(ale_previous_wrap)
+nnoremap <silent> ]c <Plug>(ale_next_wrap)
+
+" if executable('typescript-language-server')
+  "
+  " Was causing some issues when using scripts.
+  " Could be useful if triggered rather then automatic
+  "
+  " au User lsp_setup call lsp#register_server({
+  "       \ 'name': 'javascript support using typescript-language-server',
+  "       \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+  "       \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+  "       \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact']
+  "       \ })
+" endif
+
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 "   }}}
 
 " Formatting
 "
 set formatoptions-=cro
-
-
-" Ctrl Space options
-"
-let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-let g:CtrlSpaceSaveWorkspaceOnExit = 1
-
 
 " Removes whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -386,7 +429,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 set statusline+=%#warningmsg#
 set statusline+=%*
 
-
 set modeline
 set modelines=1
 " vim: foldmethod=marker
+"
