@@ -72,7 +72,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Colors & Highlighting
 "   {{{
-colorscheme badwolf 		" Cool Colourscheme 
+" colorscheme badwolf 		" Cool Colourscheme 
 if !exists("g:syntax_on")	" Ensures highlighting isn't affected
 	syntax enable   		" Enable syntax processing, aka allows highlighting & font
 endif
@@ -92,7 +92,7 @@ set expandtab           " Sets tab to add spaces according to softtabstop
 
 " Sets spacing for different filetypes
 augroup webDevGroup
-  au BufRead,BufNewFile *.js,*.ts,*.html,*.css
+  au BufRead,BufNewFile *.js,*.ts,*.html,*.css,*.sh
         \ :setlocal tabstop=2
         \| :setlocal softtabstop=2
         \| :setlocal shiftwidth=2
@@ -130,8 +130,10 @@ set clipboard=unnamed
 " Leader Shortcuts
 "   {{{
 let mapleader=","                           " Set leader to comma
-map <leader>n :NERDTreeToggle<CR>
-map <leader>u :UndotreeToggle<CR>
+noremap <leader>n :NERDTreeToggle<CR>
+noremap <leader>nt :NERDTreeToggle<CR>
+noremap <leader>nf :NERDTreeFind<CR>
+noremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>ev :e $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
 " nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
@@ -151,6 +153,27 @@ nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 "   {{{
 nnoremap U J
 " }}}
+
+" Fugitive
+"   {{{
+  nnoremap <leader>gd :Gdiff<CR>
+  nnoremap <leader>gs :Gstatus<CR>
+  nnoremap <leader>gc :Gcommit<CR>
+  " nnoremap <leader>gp :Gpull<CR>
+  noremap <leader>dp :diffput<CR>
+  noremap <leader>dg :diffget<CR>
+
+" }}}
+
+
+" FZF Commands
+"   {{{
+nnoremap <leader>fa :Ag<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fc :Commits<CR>
+" }}}
+
 
 " Copy Commands
 " {{{
