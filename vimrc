@@ -178,18 +178,18 @@ nnoremap <leader>fc :Commits<CR>
 " Copy Commands
 " {{{
 " Add hotkeys to copy text to independnet registers
-map <leader>W "ayy
-map <leader>w "ap
-map <leader>q i<space><esc>"apbhx
+noremap <leader>W "ayy
+noremap <leader>w "ap
+noremap <leader>q i<space><esc>"apbhx
 "s-a
-map <leader>S "syy
-map <leader>s "sp
-map <leader>a i<space><esc>"spbhx
+noremap <leader>S "syy
+noremap <leader>s "sp
+noremap <leader>a i<space><esc>"spbhx
 
 " Command to copy to windows clipboard (saves to new buffer then uses clip.exe)
 " map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
-map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>
-map <C-d> :r ~/.vimbuffer<CR>
+noremap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>
+noremap <C-d> :r ~/.vimbuffer<CR>
 " }}}
 
 " Searching
@@ -218,10 +218,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-map H ^
-map L $
-map J <C-d>
-map K <C-u>
+noremap H ^
+noremap L $
+nnoremap J <C-d>
+nnoremap K <C-u>
 
 set splitbelow
 set splitright
@@ -253,7 +253,7 @@ set directory^=$HOME/.vim/tmp
 "   {{{
 let g:ycm_python_binary_path = '/usr/bin/python'
 let g:ycm_autoclose_preview_window_completion=1 "ensures autocomp window exits
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " let g:UltiSnipsExpandTrigger="<CR>"
 
