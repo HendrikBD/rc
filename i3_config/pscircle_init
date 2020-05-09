@@ -1,0 +1,8 @@
+pscircle --root-pid=1 --collapse-threads=true --max-children=35 --tree-sector-angle=3.1415 --tree-rotate=true --tree-rotation-angle=1.5708 --tree-center=-1580:0 --cpulist-center=300:0 --memlist-center=800:0 --max-height=200:0
+
+pscircle --root-pid=1 --collapse-threads=true --max-children=20 --tree-sector-angle=3.1415 --tree-rotate=true --tree-rotation-angle=1.5708 --cpulist-center=300:0 --tree-center=-1580:0 --memlist-center=800:0 --output-height=1080 --tree-font-size=12 --tree-radius-increment=100 --background-color=000000 --output-display=DP-3
+
+--tree-center=-1580:0 --cpulist-center=300:0 --memlist-center=800:0 --max-height=200:0
+
+
+pscircle --root-pid=1 --collapse-threads=true --max-children=20 --cpulist-center=300:0 --memlist-center=800:0 --output-height=1080 --output-width=3840 --tree-font-size=10 --tree-radius-increment=80 --background-color=000000 --tree-center=-1400:0 
