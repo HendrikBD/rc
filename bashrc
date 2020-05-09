@@ -90,15 +90,31 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+
 ####################
 # Aliases
 ####################
+
 alias l='ls -alF'
 alias la='ls -A'
 
 alias ..='cd ..'
 
 alias mkdir='mkdir -pv' # Automatically create parent directory if necessary
+
+alias oct='octave --no-gui'
+
+alias pip='~/../../usr/bin/pip2'
+alias pipenv='~/.local/bin/pipenv'
+
+# Copying
+alias x='xclip -selection clipboard'
+
+# Aliases for directory navigation
+alias cdn='cd ~/.notes/'
+alias cds='cd ~/homebrew/spark'
+alias cdsa='cd ~/homebrew/spark/src/app/spark'
+alias cdi3='cd ~/.config/i3/'
 
 # Aliases for git commands
 alias gs='git status'
@@ -110,6 +126,14 @@ alias gco='git checkout'
 alias gb='git branch'
 alias gpush='git push origin master'
 alias gpull='git pull origin master'
+
+# Aliases for directory navigation
+alias tl='tmux list-sessions'
+alias tat='tmux attach -t'
+
+# Audio Alias
+alias pacplay='pactl load-module module-loopback latency_msec=1'
+
 
 
 # Add an "alert" alias for long running commands.  Use like so:
