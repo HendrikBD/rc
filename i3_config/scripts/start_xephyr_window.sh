@@ -1,16 +1,20 @@
 get_next_xephyr_session() {
 
-  x_servers=`get_xephyr_servers`
+  x_servers=`get_xservers`
 
-  prev_x_server=`echo $x_servers |\
-    awk -F " " '{print $NF}'`
+  prev_x_server=`echo $x_servers | awk -F " " '{print $NF}'`
 
-  next_x_server=`expr $prev_x_server + 1`
+  if [ -z $prev_x_server ]
+  then
+    next_x_server=3
+  else
+    next_x_server=`expr $prev_x_server + 1`
+  fi
 
-  Xephyr :$next_x_server -ac -screen 460x340 &> /dev/null &
+  echo $next_x_server
 }
 
-get_xephyr_servers() {
+get_xservers() {
 
   x_servers=`ps aux |\
     grep "Xephyr :.*ac" |\
@@ -22,6 +26,11 @@ get_xephyr_servers() {
   echo $x_servers
 }
 
-next_xephyr_session=`get_next_xephyr_session`
+launch_xephyr_server() {
 
-eval `Xephyr :${next_x_server} -ac -screen 460x340 &> /dev/null &`
+  next_xephyr_session=`get_next_xephyr_session`
+  Xephyr :$next_xephyr_session -ac -screen 460x340 &> /dev/null &
+
+}
+
+launch_xephyr_server
