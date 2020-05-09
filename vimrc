@@ -274,19 +274,21 @@ function! Ulti_ExpandOrJump_and_getRes()
 endfunction
 
 inoremap <CR> <C-R>=(Ulti_ExpandOrJump_and_getRes() > 0)?"":"\n"<CR>
+
+set completeopt=menuone,preview,noinsert
 " }}}
 
 " Virtualenv Support
 " {{{
 
-py3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+" py3 << EOF
+" import os
+" import sys
+" if 'VIRTUAL_ENV' in os.environ:
+"   project_base_dir = os.environ['VIRTUAL_ENV']
+"   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"   execfile(activate_this, dict(__file__=activate_this))
+" EOF
 " }}}
 
 " Running and Compiling
@@ -305,6 +307,10 @@ EOF
 "   {{{
 set visualbell
 " }}}
+"
+
+" Auto Formatting
+set formatoptions-=cro
 
 " Syntastic Config (recommended by repo)
 "   {{{
@@ -316,6 +322,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 " }}}
 
 set modeline
