@@ -1,38 +1,70 @@
 " Plugin Setup
 "   {{{
 set nocompatible        " Ensure vim (not vi, for vundle)
+set hidden
+
 filetype off
 
+set rtp+=~/.fzf
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" call vundle#begin()
+call plug#begin('~/.vim/bundle')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
-Plugin 'sjl/badwolf'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mbbill/undotree'
-Plugin 'ggreer/the_silver_searcher'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'burnettk/vim-angular'
-Plugin 'claco/jasmine.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
+" Theme
+Plug 'sjl/badwolf'
 
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'matthewsimo/angular-vim-snippets'
-Plugin 'Valloric/YouCompleteMe'
+" Status
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Generic Utilities
+Plug 'scrooloose/nerdtree'
+Plug 'mbbill/undotree'
+Plug 'tomtom/tcomment_vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'Shougo/vimproc.vim'
+Plug 'tpope/vim-fugitive' " Fugitive, brings git into vim
+Plug 'tpope/vim-surround'
+Plug 'adelarsq/vim-matchit'
+Plug 'prettier/vim-prettier'
+Plug 'heavenshell/vim-jsdoc'
+
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Server
+
+Plug 'Quramy/tsuquyomi'
+
+" LSP + Ale
+Plug 'w0rp/ale'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'burnettk/vim-angular'
+Plug 'othree/javascript-libraries-syntax.vim'
+
+Plug 'claco/jasmine.vim'
+
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+" Plugin 'matthewsimo/angular-vim-snippets'
+" Plugin 'Valloric/YouCompleteMe'
 
 
-call vundle#end()
+
+" call vundle#end()
+" filetype plugin indent on
+call plug#end()
 filetype plugin indent on
 " }}}
 
