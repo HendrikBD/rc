@@ -68,7 +68,6 @@ call plug#end()
 filetype plugin indent on
 " }}}
 
-let g:airline#extensions#tabline#enabled = 1
 
 " Colors & Highlighting
 "   {{{
@@ -77,7 +76,15 @@ if !exists("g:syntax_on")	" Ensures highlighting isn't affected
 	syntax enable   		" Enable syntax processing, aka allows highlighting & font
 endif
 
-let g:airline_theme='distinguished'
+" Remove split highlighting
+highlight VertSplit cterm=NONE
+
+" Highlighting
+hi Folded ctermbg=000
+hi Search ctermbg=99
+hi Search ctermfg=236
+
+
 " }}}
 
 " Spaces & Tabs
@@ -165,6 +172,11 @@ nnoremap U J
 
 " }}}
 
+" Airline
+"   {{{
+let g:airline_theme='distinguished'
+" let g:airline#extensions#tabline#enabled = 1
+" }}}
 
 " FZF Commands
 "   {{{
@@ -257,23 +269,23 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " let g:UltiSnipsExpandTrigger="<CR>"
 
-let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<S-Tab>', '<Up>']
-
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
+" let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<S-Tab>', '<Up>']
+"
+" let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
 
 " Setting <CR> (enter) to trigger UltiSnippet if menu is up, otherwise inset
 " newline
 
-let g:ulti_expand_or_jump_res = 0 "default value, just set once
+" let g:ulti_expand_or_jump_res = 0 "default value, just set once
 
-function! Ulti_ExpandOrJump_and_getRes()
-  call UltiSnips#ExpandSnippetOrJump()
-  return g:ulti_expand_or_jump_res
-endfunction
+" function! Ulti_ExpandOrJump_and_getRes()
+"   call UltiSnips#ExpandSnippetOrJump()
+"   return g:ulti_expand_or_jump_res
+" endfunction
 
-inoremap <CR> <C-R>=(Ulti_ExpandOrJump_and_getRes() > 0)?"":"\n"<CR>
+" inoremap <CR> <C-R>=(Ulti_ExpandOrJump_and_getRes() > 0)?"":"\n"<CR>
 
 set completeopt=menuone,preview,noinsert
 " }}}
