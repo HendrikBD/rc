@@ -100,8 +100,8 @@ bindsym $mod+a focus parent
 
 set $workspace1 "1: Dashboard"
 set $workspace2 "2: Editor"
-set $workspace3 "3: Test"
-set $workspace4 "4: Ref"
+set $workspace3 "3: Ref"
+set $workspace4 "4: Test"
 set $workspace5 "5: Media"
 set $workspace6 "6"
 set $workspace7 "7"
