@@ -31,6 +31,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec urxvt
+# start alt terminal, background logging
+bindsym $mod+Shift+Return exec --no-startup-id "bash /home/bhd/.config/i3/scripts/start_background_terminal.sh"
 
 # kill focused window
 # bindsym $mod+Shift+q kill; exec --no-startup-id /home/bhd/.config/i3/scripts/prune_dead_xservers.sh
@@ -174,6 +176,9 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3blocks
 }
+
+# Alt Terminal
+for_window [instance="termbg"] floating enable
 
 # Mouse
 focus_follows_mouse no
