@@ -26,11 +26,22 @@ get_xservers() {
   echo $x_servers
 }
 
-launch_xephyr_server() {
+launch_browser_server() {
 
   next_xephyr_session=`get_next_xephyr_session`
-  Xephyr :$next_xephyr_session -ac -screen 460x340 &> /dev/null &
+  Xephyr :$next_xephyr_session -ac -screen 800x500 &> /dev/null &
+  DISPLAY=:$next_xephyr_session
+  chromium-browser
 
 }
 
-launch_xephyr_server
+
+launch_large_browser_xserver() {
+
+  next_xephyr_session=`get_next_xephyr_session`
+  Xephyr :$next_xephyr_session -ac -screen 1820x900 &> /dev/null &
+
+}
+
+# launch_large_browser_xserver
+launch_browser_server
