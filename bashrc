@@ -155,9 +155,11 @@ fi
 eval "$(dircolors ~/.dir_colors)"
 
 # Configure and setup nvm, node & npm on startup
-export NVM_DIR="$HOME/utilities/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/utilities/nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Ensure display can be connected to display server in windows
-export DISPLAY=:0
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+alias hist="history | fzf"
