@@ -1,3 +1,5 @@
+#!/bin/bash
+
 get_next_xephyr_session() {
 
   x_servers=`get_xservers`
@@ -30,6 +32,7 @@ launch_browser_server() {
 
   next_xephyr_session=`get_next_xephyr_session`
   Xephyr :$next_xephyr_session -ac -screen 800x500 &> /dev/null &
+  echo $next_xephyr_session > ~/.test/test
   DISPLAY=:$next_xephyr_session
   chromium-browser
 
