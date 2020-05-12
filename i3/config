@@ -36,7 +36,8 @@ bindsym $mod+Shift+Return exec --no-startup-id "bash /home/bhd/.config/i3/script
 
 # kill focused window
 # bindsym $mod+Shift+q kill; exec --no-startup-id /home/bhd/.config/i3/scripts/prune_dead_xservers.sh
-bindsym $mod+Shift+q kill; exec --no-startup-id "bash /home/bhd/.config/i3/scripts/prune_dead_xservers.sh"
+# bindsym $mod+Shift+q kill; exec --no-startup-id "bash /home/bhd/.config/i3/scripts/prune_dead_xservers.sh"
+bindsym $mod+Shift+q kill
 
 
 # start dmenu (a program launcher)
@@ -48,7 +49,9 @@ bindsym $mod+d exec dmenu_run
 
 # bindsym $mod+Shift+b exec brave-browser
 # bindsym $mod+Shift+b exec --no-startup-id /home/bhd/.config/i3/scripts/start_xephyr_window.sh
-bindsym $mod+Shift+b exec --no-startup-id "bash /home/bhd/.config/i3/scripts/start_xephyr_window.sh"
+# bindsym $mod+Shift+b exec --no-startup-id "bash /home/bhd/.config/i3/scripts/move_to_viewer.sh"
+
+bindsym $mod+Shift+b floating enable; resize set 800 500; move position 1050 500
 
 # change focus
 bindsym $mod+h focus left
@@ -189,6 +192,7 @@ floating_modifier $mod
 # border
 for_window [class="^.*"] border pixel 1
 for_window [class="conky"] border pixel 0
+for_window [class="termbg"] border pixel 0
 
 # Gaps
 gaps inner 5
