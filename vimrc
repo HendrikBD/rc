@@ -155,6 +155,13 @@ nnoremap <leader>, :CtrlPLine<CR>
 nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
 " }}}
 
+" Generic Steup
+" {{{
+"
+set relativenumber!
+"
+" }}}
+
 " Hotkeys
 "   {{{
 nnoremap U J
