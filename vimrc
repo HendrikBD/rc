@@ -132,8 +132,12 @@ noremap <leader>n :NERDTreeToggle<CR>
 noremap <leader>nt :NERDTreeToggle<CR>
 noremap <leader>nf :NERDTreeFind<CR>
 noremap <leader>u :UndotreeToggle<CR>
+
+" Edit configs
 nnoremap <leader>ev :e $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
+
+nnoremap <leader>ees :e $HOME/.eslintrc.json<CR>
 " nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
 nnoremap <leader>a :Ag 
 
@@ -145,6 +149,9 @@ nnoremap <leader>m :bp<CR>
 nnoremap <leader>, :CtrlPLine<CR>
 
 nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
+
+nnoremap <leader>pst :set paste<CR>
+nnoremap <leader>npst :set nopaste<CR>
 " }}}
 
 " Generic Steup
