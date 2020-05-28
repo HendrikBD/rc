@@ -9,6 +9,7 @@ move() {
   HEIGHT=500
   X=1050
   Y=500
+  echo "xdotool windowmove $focus_window $X $Y" > ~/.test/test
   xdotool windowmove $focus_window $X $Y
   xdotool windowsize $focus_window $WIDTH $HEIGHT
 }

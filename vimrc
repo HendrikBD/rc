@@ -42,9 +42,9 @@ Plug 'Quramy/tsuquyomi'
 Plug 'w0rp/ale'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'pangloss/vim-javascript'
