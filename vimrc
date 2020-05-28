@@ -199,7 +199,7 @@ noremap <leader>a i<space><esc>"spbhx
 
 " Command to copy to windows clipboard (saves to new buffer then uses clip.exe)
 " map <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| clip.exe<CR><CR>
-noremap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>
+noremap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR>:bd ~/.vimbuffer<CR>:!cat ~/.vimbuffer \| xclip -o -d :1<CR><CR>
 noremap <C-d> :r ~/.vimbuffer<CR>
 " }}}
 
@@ -309,7 +309,7 @@ set completeopt=menuone,preview,noinsert
 
 " Notifications
 "   {{{
-set visualbell
+" set visualbell
 " }}}
 "
 
