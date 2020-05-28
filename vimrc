@@ -73,7 +73,11 @@ filetype plugin indent on
 
 " Colors & Highlighting
 "   {{{
-" colorscheme badwolf 		" Cool Colourscheme 
+colorscheme badwolf 		" Cool Colourscheme 
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
+
+
 if !exists("g:syntax_on")	" Ensures highlighting isn't affected
 	syntax enable   		" Enable syntax processing, aka allows highlighting & font
 endif
