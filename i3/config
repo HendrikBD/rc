@@ -30,7 +30,8 @@ font pango:monospace 8, awesome 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+# bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec termite
 # start alt terminal, background logging
 bindsym $mod+Shift+Return exec --no-startup-id "bash /home/bhd/.config/i3/scripts/start_background_terminal.sh"
 
@@ -103,13 +104,13 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $WS1 "1: "
-set $WS2 "2: "
-set $WS3 "3: "
-set $WS4 "4: "
-set $WS5 "5: "
+set $WS1 "1: "
+set $WS2 "2: 💻"
+set $WS3 "3: "
+set $WS4 "4: 🌐"
+set $WS5 "5: 🚀"
 set $WS6 "6"
-set $WS7 "7"
+set $WS7 "7: 🎮"
 set $WS8 "8"
 set $WS9 "9"
 set $WS10 "10"
@@ -142,10 +143,14 @@ bindsym $mod+Shift+0 move container to workspace $WS10
 assign [class="Spotify"] $WS5
 assign [class="termbg"] $WS1
 
+# reload Xresources
+bindsym $mod+x exec "xrdb ~/.Xresources"
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
