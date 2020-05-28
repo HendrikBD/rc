@@ -110,6 +110,10 @@ set expandtab           " Sets tab to add spaces according to softtabstop
 
 setlocal foldlevelstart=10
 
+" {{{ Init Defaults
+:set maxfuncdepth=200
+" }}}
+
 "   }}}
 
 " UI Config
@@ -136,12 +140,23 @@ noremap <leader>u :UndotreeToggle<CR>
 " Edit configs
 nnoremap <leader>ev :e $MYVIMRC<CR>        " Maps ,ev to open .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>    " Maps ,sv to load .vimrc
+nnoremap <leader>json :%!python3 -m json.tool<CR>    "
+nnoremap <leader>jsd :JsDoc<CR>
+
+" FZF Commands
+nnoremap <leader>fa :Ag<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fc :Commits<CR>
+
+vnoremap <leader>fa y:Ag<Space><C-R>"<CR>
+
+" Fold leaving one layer open. Good for looking at classes etc
+nnoremap <leader>a zMzr
 
 nnoremap <leader>ees :e $HOME/.eslintrc.json<CR>
-" nnoremap <leader>s :mksession<CR>           " Saves session, can be opened with vim -s
-nnoremap <leader>a :Ag 
 
-nnoremap <leader>rel :set relativenumber!<CR>
+
 
 nnoremap <leader>. :bn<CR>
 nnoremap <leader>m :bp<CR>
@@ -149,6 +164,10 @@ nnoremap <leader>m :bp<CR>
 nnoremap <leader>, :CtrlPLine<CR>
 
 nnoremap <leader>html :source ~/.vim/homebrew/htmlSkel.vim<CR>
+nnoremap <leader>cl oconsole.log()<Esc>
+vnoremap <leader>cl yoconsole.log('<Esc>pa',<Space><Esc>pa);<Esc>
+nnoremap <leader>fsl oconst fs = require('fs');<CR>fs.writeFile(`${__dirname}/tmp.log`,, () => {<CR>console.log('Logged!')<CR>});<Esc>kkf,a<Space>
+nnoremap <leader>st osetTimeout(() => {}, 2000)<Esc>7hi
 
 nnoremap <leader>pst :set paste<CR>
 nnoremap <leader>npst :set nopaste<CR>
@@ -253,65 +272,16 @@ set writebackup
 set directory^=$HOME/.vim/tmp
 " }}}
 
-" Autocomplete Options & Cmds
-"   {{{
-" let g:ycm_python_binary_path = '/usr/bin/python'
-" let g:ycm_autoclose_preview_window_completion=1 "ensures autocomp window exits
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" let g:UltiSnipsExpandTrigger="<CR>"
-
-" let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<S-Tab>', '<Up>']
-"
-" let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-" let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
-
-" Setting <CR> (enter) to trigger UltiSnippet if menu is up, otherwise inset
-" newline
-
-" let g:ulti_expand_or_jump_res = 0 "default value, just set once
-
-" function! Ulti_ExpandOrJump_and_getRes()
-"   call UltiSnips#ExpandSnippetOrJump()
-"   return g:ulti_expand_or_jump_res
-" endfunction
-
-" inoremap <CR> <C-R>=(Ulti_ExpandOrJump_and_getRes() > 0)?"":"\n"<CR>
 
 set completeopt=menuone,preview,noinsert
-" }}}
-
-" Virtualenv Support
-" {{{
-
-" py3 << EOF
-" import os
-" import sys
-" if 'VIRTUAL_ENV' in os.environ:
-"   project_base_dir = os.environ['VIRTUAL_ENV']
-"   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"   execfile(activate_this, dict(__file__=activate_this))
-" EOF
-" }}}
 
 " Running and Compiling
 " {{{
-    nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
+    " nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
+    nnoremap <leader>x :%w ! node > ~/.vimoutput<CR> :sp ~/.vimoutput<CR>
+    vnoremap <leader>x :'<,'>w ! node > ~/.vimoutput<CR> :sp ~/.vimoutput<CR>
 " }}}
 
-" Opening Format
-" {{{
-" :sp
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * wincmd p
-" }}}
-
-" Notifications
-"   {{{
-" set visualbell
-" }}}
-"
 
 " Auto Formatting
 set formatoptions-=cro
