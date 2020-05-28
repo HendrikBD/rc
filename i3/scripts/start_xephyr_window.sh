@@ -31,11 +31,34 @@ get_xservers() {
 launch_browser_server() {
 
   next_xephyr_session=`get_next_xephyr_session`
-  Xephyr :$next_xephyr_session -ac -screen 800x500 &> /dev/null &
-  echo $next_xephyr_session > ~/.test/test
+  Xephyr :$next_xephyr_session -ac -screen 800x500 -fullscreen &> /dev/null &
   DISPLAY=:$next_xephyr_session
-  chromium-browser
+  chromium-browser -new-instance &
+  sleep 0.1
+  update_xephyr_position
 
+}
+
+update_xephyr_position() {
+  DISPLAY=:1
+  xephyr_window=`get_xephyr_windows`
+  ((`echo $xephyr_window | wc -l` == 1)) && move `echo $xephyr_window | head -n 1`
+}
+
+get_xephyr_windows() {
+  DISPLAY=:1
+  xephyr_windows=`xdotool search --classname xephyr`
+  echo $xephyr_windows
+}
+
+move() {
+  xephyr_window=$1
+  WIDTH=800
+  HEIGHT=500
+  X=1050
+  Y=500
+  xdotool windowmove $xephyr_window $X $Y
+  xdotool windowsize $xephyr_window $WIDTH $HEIGHT
 }
 
 
