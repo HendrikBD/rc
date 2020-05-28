@@ -54,6 +54,9 @@ Plug 'othree/javascript-libraries-syntax.vim'
 
 Plug 'claco/jasmine.vim'
 
+Plug 'chrisbra/unicode.vim'
+Plug 'tpope/vim-characterize'
+
 " Plugin 'SirVer/ultisnips'
 " Plugin 'honza/vim-snippets'
 " Plugin 'matthewsimo/angular-vim-snippets'
