@@ -85,43 +85,28 @@ endif
 " Remove split highlighting
 highlight VertSplit cterm=NONE
 
+
+" Font
+set guifont=DejaVuSans
+
 " Highlighting
 hi Folded ctermbg=000
 hi Search ctermbg=99
 hi Search ctermfg=236
 
-
 " }}}
 
 " Spaces & Tabs
 "   {{{
-" let g:typescript_indent_disable = 1
-" let g:javascript_indent_disable = 1
 
 filetype indent on      " Loads filetype specific indent files (from .vim/indent)
 
 set autoindent          " Sets vim to mantain indent when newline is created
 set expandtab           " Sets tab to add spaces according to softtabstop
 
-" Sets spacing for different filetypes
-augroup webDevGroup
-  au BufRead,BufNewFile *.js,*.ts,*.html,*.css,*.sh
-        \ :setlocal tabstop=2
-        \| :setlocal softtabstop=2
-        \| :setlocal shiftwidth=2
-augroup END
-
-" And options for python
-au BufNewFile,BufRead *.py
-      \| :setlocal tabstop=4
-      \| :setlocal softtabstop=4
-      \| :setlocal shiftwidth=4
-      \| :setlocal textwidth=79
-      \| :setlocal fileformat=unix
-
-:setlocal tabstop=2
-:setlocal softtabstop=2
-:setlocal shiftwidth=2
+:set tabstop=2
+:set softtabstop=2
+:set shiftwidth=2
 
 setlocal foldlevelstart=10
 
